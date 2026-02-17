@@ -26,9 +26,17 @@ function* daysOfTheWeek() {
     let sequence = 0;
     while(!sequence.done) {
         yield days[sequence];
-        sequence = index + 1;
+        sequence = sequence + 1;
         if(sequence >= days.length) {
             sequence = 0;
         }
     }
+}
+
+const dWeek = daysOfTheWeek();
+// for(dw of dWeek) {
+//    console.log(dWeek.next().value);
+// } //infinite generator
+for(let i = 0; i < 8; i++) {
+    console.log(dWeek.next().value);
 }
