@@ -45,3 +45,9 @@ return {
      }
    };
 }
+
+const toFrom = rangeNum(0, 2);
+console.log(toFrom.next());
+console.log(toFrom.next());
+console.log(toFrom.next());
+console.log(toFrom.next());
