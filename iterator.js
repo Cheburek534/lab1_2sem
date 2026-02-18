@@ -51,3 +51,19 @@ console.log(toFrom.next());
 console.log(toFrom.next());
 console.log(toFrom.next());
 console.log(toFrom.next());
+
+//Iterator from lab 
+const Animals = {
+    animals: ["Monkey", "Dog", "Zebra", "Alligator", "Hornet"],
+    [Symbol.iterator]() {
+        let order = 0;
+        return {
+        next() { 
+         if(order <= this.animal.length) {
+            return {value: this.animals[order++], done: false};
+         }
+         else { return{value: undefined, done: true}};
+        } 
+    }; 
+  }
+}
