@@ -34,9 +34,20 @@ function* daysOfTheWeek() {
 }
 
 const dWeek = daysOfTheWeek();
+
+let count = 0;
+for(const dw of dWeek) {
+    console.log(dw);
+    count++;
+    if(count == 9) {
+        break;
+    }
+}
+
 // for(dw of dWeek) {
 //    console.log(dWeek.next().value);
-// } //infinite generator
-for(let i = 0; i < 8; i++) {
-    console.log(dWeek.next().value);
-}
+// }                                    //infinite generator
+
+// for(let i = 0; i < 8; i++) {
+//     console.log(dWeek.next().value); 
+// }                                    //generator with for(i)
