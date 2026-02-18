@@ -57,13 +57,36 @@ const Animals = {
     animals: ["Monkey", "Dog", "Zebra", "Alligator", "Hornet"],
     [Symbol.iterator]() {
         let order = 0;
+        const animals = this.animals;
         return {
         next() { 
-         if(order <= this.animal.length) {
-            return {value: this.animals[order++], done: false};
+         if(order <= animals.length) {
+            return {value: animals[order++], done: false};
          }
          else { return{value: undefined, done: true}};
         } 
     }; 
   }
 }
+for(const animal of Animals) {
+    console.log(animal);
+}
+
+function timeoutIterator(iterator, Seconds) {
+    const start = Date.now();
+    const timeoutMs = Seconds * 1000;
+    let count = 0;
+    
+    console.log(`Start ${Seconds} sec`);
+        for (const value of iterator) {
+        const elapsed = Date.now() - start;
+        if (elapsed >= timeoutMs) {
+            break;
+        }
+        count++;
+        console.log(`${count}. ${value}`);
+    }
+    const totalTime = ((Date.now() - start) / 1000).toFixed(2);
+    console.log(`Animals: ${count}, Time: ${totalTime} seconds`);
+}
+timeoutIterator(Animals, 1); 
