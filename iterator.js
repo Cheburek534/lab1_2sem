@@ -25,3 +25,23 @@ console.log({nums: [...iter]});
 
 //Main iterator
 console.log("Iterator:");
+
+function rangeNum(start, end) {
+let now = start;
+return {
+    next() {
+        if(now <= end) {
+            return {
+                value: now++,
+                done: false
+            };
+        }
+        else {
+            return {
+                value: undefined,
+                done: true 
+            };
+        }
+     }
+   };
+}
