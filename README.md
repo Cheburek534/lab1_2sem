@@ -1,1 +1,1 @@
-# lab1_2sem
+# lab1_2sem: Iterators and Generators
