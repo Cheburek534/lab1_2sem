@@ -1,3 +1,6 @@
+//simple iterator
+const iter = {
+[Symbol.iterator]() {    
 const iterator = {
     number: 0,
     next() {
@@ -5,10 +8,20 @@ const iterator = {
             value: this.number++,
             done: this.number > 4,
         };
-    }
-}; 
+      }
+   }; 
+   return iterator;
+  } 
+}
+const iterator = iter[Symbol.iterator]();
 const n1 = iterator.next().value;
 const n2 = iterator.next().value;
 const n3 = iterator.next().value;
 const n4 = iterator.next().value;
 console.log({n1, n2, n3, n4});
+
+for(const nums of iter);
+console.log({nums: [...iter]});
+
+//Main iterator
+console.log("Iterator:");
