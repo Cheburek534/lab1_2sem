@@ -39,7 +39,7 @@ let count = 0;
 for(const dw of dWeek) {
     console.log(dw);
     count++;
-    if(count == 9) {
+    if(count == 7) {
         break;
     }
 }
