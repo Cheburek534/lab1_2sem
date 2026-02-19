@@ -72,21 +72,32 @@ for(const animal of Animals) {
     console.log(animal);
 }
 
+function busyWait(ms) {
+    const end = Date.now() + ms;
+    while (Date.now() < end) {}
+}
+
 function timeoutIterator(iterator, Seconds) {
     const start = Date.now();
     const timeoutMs = Seconds * 1000;
     let count = 0;
     
     console.log(`Start ${Seconds} sec`);
-        for (const value of iterator) {
+
+    for (const value of iterator) {
+        busyWait(300);
+
         const elapsed = Date.now() - start;
         if (elapsed >= timeoutMs) {
             break;
         }
+
         count++;
         console.log(`${count}. ${value}`);
     }
+
     const totalTime = ((Date.now() - start) / 1000).toFixed(2);
     console.log(`Animals: ${count}, Time: ${totalTime} seconds`);
 }
+
 timeoutIterator(Animals, 1); 
